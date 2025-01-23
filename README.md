@@ -1,7 +1,7 @@
 # The problem
 Azure Data Factory recently released the new Snowflake connector, with an [streamlined upgrade process](https://learn.microsoft.com/en-us/azure/data-factory/connector-snowflake?tabs=data-factory#upgrade-the-snowflake-linked-service).
 
-However, after changing to the new connector, it has been reported that lookup activities randomly output nothing.
+However, after changing to the new connector, [it has been reported that lookup activities randomly output nothing](https://stackoverflow.com/questions/79013977/adf-lookup-activity-sometimes-not-returning-value-after-changing-to-the-new-snow).
 
 # The solution
 Script activities, however, are more reliable and don't produce empty outputs as they inject raw SQL in Snowflake. So a potential solution is to replace every lookup activity by an equivalent script activity that has the exact same functionality.
